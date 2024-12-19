@@ -11,6 +11,8 @@ import signal
 import struct
 import tempfile
 
+import codecs
+
 #import crypto
 
 from random import randint
@@ -239,7 +241,10 @@ class ExfiltrateFile(threading.Thread):
         self.exfiltrate = exfiltrate
         self.jobid = ''.join(random.sample(
             string.ascii_letters + string.digits, 7))
-        self.checksum = md5(file_to_send)
+        print(file_to_send)
+        file_to_send = codecs.encode(file_to_send)
+        print(file_to_send)
+        self.checksum = hashlib.md5(file_to_send)
         self.daemon = True
 
     def run(self):

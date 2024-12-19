@@ -10,7 +10,7 @@
         },        
         "dns": {
             "key": "google.com",
-            "target": "gl53oatwd9za1i4d6pobxychh8nzbq2er.burpoutloud.zxsecurity.co.nz",
+            "target": "schrodersecurity.co.nz",
             "port": 53
         },
         "gmail": {
