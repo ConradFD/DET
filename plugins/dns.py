@@ -2,7 +2,7 @@ from dnslib import *
 try:
     from scapy.all import *
 except:
-    print "You should install Scapy if you run the server.."
+    print ("You should install Scapy if you run the server..")
 
 app_exfiltrate = None
 config = None
@@ -28,8 +28,8 @@ def handle_dns_packet(x):
             if (len(qname) < 68):
                 app_exfiltrate.retrieve_data(''.join(buf[jobid]).decode('hex'))
                 buf[jobid] = []
-    except Exception, e:
-        # print e
+    except Exception as e:
+        print (e)
         pass
 
 

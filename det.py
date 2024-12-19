@@ -10,6 +10,9 @@ import json
 import signal
 import struct
 import tempfile
+
+#import crypto
+
 from random import randint
 from os import listdir
 from os.path import isfile, join
@@ -39,7 +42,7 @@ class bcolors:
 
 
 def display_message(message):
-    print "[%s] %s" % (time.strftime("%Y-%m-%d.%H:%M:%S", time.gmtime()), message)
+    print ("[%s] %s" % (time.strftime("%Y-%m-%d.%H:%M:%S", time.gmtime()), message))
 
 
 def warning(message):
@@ -316,7 +319,7 @@ def main():
     results = parser.parse_args()
 
     if (results.config is None):
-        print "Specify a configuration file!"
+        print ("Specify a configuration file!")
         parser.print_help()
         sys.exit(-1)
 
@@ -369,7 +372,7 @@ def main():
     for thread in threads:
         while True:
             thread.join(1)
-            if not thread.isAlive():
+            if not thread.is_alive():
                 break
 
 if __name__ == '__main__':
